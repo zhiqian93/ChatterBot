@@ -14,6 +14,13 @@ class BestMatchTestCase(ChatBotTestCase):
         self.adapter = BestMatch()
         self.adapter.set_chatbot(self.chatbot)
 
+    def test_get_class_namespace(self):
+        """
+        Test that the namespace string is returned for the class.
+        """
+        result = self.adapter.get_class_namespace()
+        self.assertEqual(result, 'chatterbot.logic.best_match.BestMatch')
+
     def test_no_choices(self):
         """
         An exception should be raised if there is no data in the database.

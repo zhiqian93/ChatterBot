@@ -75,6 +75,18 @@ class LogicAdapter(Adapter):
         """
         return str(self.__class__.__name__)
 
+    def get_class_namespace(self):
+        """
+        Return the fully qualified class name for the current class.
+        For example, a class named 'ExampleLogicAdapter' located in
+        a file 'chatterbot/logic/adapter.py' would
+        return 'chatterbot.logic.adapter.ExampleLogicAdapter'.
+        """
+        return '{}.{}'.format(
+            self.__module__,
+            self.class_name
+        )
+
     class EmptyDatasetException(Exception):
 
         def __init__(self, value='An empty set was received when at least one statement was expected.'):

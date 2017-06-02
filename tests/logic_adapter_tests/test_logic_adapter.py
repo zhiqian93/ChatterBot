@@ -55,3 +55,11 @@ class LogicAdapterTestCase(TestCase):
             response_selection_method=get_first_response
         )
         self.assertTrue(callable(adapter.select_response))
+
+    def test_get_class_namespace(self):
+        """
+        Test that the namespace string is returned for the class.
+        """
+        adapter = LogicAdapter()
+        result = adapter.get_class_namespace()
+        self.assertEqual(result, 'chatterbot.logic.logic_adapter.LogicAdapter')

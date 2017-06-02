@@ -3,10 +3,20 @@ from chatterbot.logic import MathematicalEvaluation
 from chatterbot.conversation import Statement
 
 
-class MathematicalEvaluationTests(TestCase):
+class MathematicalEvaluationTestCase(TestCase):
 
     def setUp(self):
         self.adapter = MathematicalEvaluation()
+
+    def test_get_class_namespace(self):
+        """
+        Test that the namespace string is returned for the class.
+        """
+        result = self.adapter.get_class_namespace()
+        self.assertEqual(
+            result,
+            'chatterbot.logic.mathematical_evaluation.MathematicalEvaluation'
+        )
 
     def test_can_process(self):
         statement = Statement('What is 10 + 10 + 10?')
